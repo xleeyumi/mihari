@@ -101,6 +101,7 @@ jobs:
         include:
           - { goos: linux,   goarch: amd64, ext: '' }
           - { goos: linux,   goarch: arm64, ext: '' }
+          - { goos: linux,   goarch: arm,   goarm: 7, ext: '' }
           - { goos: darwin,  goarch: amd64, ext: '' }
           - { goos: darwin,  goarch: arm64, ext: '' }
           - { goos: windows, goarch: amd64, ext: '.exe' }
@@ -135,6 +136,7 @@ jobs:
           CGO_ENABLED: '0'
           GOOS: ${{ matrix.goos }}
           GOARCH: ${{ matrix.goarch }}
+          GOARM: ${{ matrix.goarm }}
         run: |
           # Asset names must be mihari-<goos>-<goarch>[.exe] WITHOUT the tag:
           # internal/update SelectSelfAsset and the install scripts rely on the
